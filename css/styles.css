@@ -1,0 +1,290 @@
+
+:root {
+    /* ---COLORES --- */
+    --primario: #9C27B0;
+    --primarioOscuro: #89119D;
+    --secundario: rgb(233,287,2);
+    --secundarioOscuro:  #FFCE00;
+    --blanco: #FFF;
+    --negro: #000;
+
+    /* --- FUENTES --- */
+    --fuentePrincipal: "Staatliches", sans-serif;
+}
+
+
+/* ----- GLOBALES ----- */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body {
+    background-color: var(--primario);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a {
+    text-decoration: none;
+}
+
+.contenedor {
+    max-width: 65% ;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    color: var(--secundario);
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* ----- LOGO ----- */
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    margin: 3rem 0rem;
+}
+
+/* ----- NAVEGACIÓN ----- */
+
+.navegacion {
+    background-color: var(--primarioOscuro);
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;           /* 1rem arriba y abajo y cero a los lados*/
+    gap: 2rem;
+}
+
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+
+.navegacion__enlace--activo,  /* Para resaltar el titulo cuando esté dentro de la página*/
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+}
+
+/* PRODUCTOS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px ) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__imagen {
+    width: 100%;
+}
+
+.producto__informacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto__nombre {
+    font-size: 2.5rem;
+}
+
+.producto__precio {
+    font-size: 2rem;
+    color: var(--secundario);
+}
+
+.producto__nombre, 
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* ----- GRAFICOS ----- */
+
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / 3;
+}
+
+.grafico--camisas {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico--node {
+    grid-row: 8 / 9;
+    background-image: url(../img/grafico2.jpg);
+}
+
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5/6;
+        grid-column: 2/4;
+    }
+}
+
+/* ----- NOSOTROS ----- */
+
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+
+
+@media (min-width: 768px) {
+    .nosotros {
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.nosotros__imagen {
+    width: 100%;
+    grid-row: 1/2;
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2/3;
+    }
+}
+
+/* ----- BENEFICIOS ----- */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+
+@media (min-width: 768px) {
+    .beneficios {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+}
+
+.beneficio__detalle {
+    text-align: center;
+}
+
+.beneficio__titulo {
+    margin: 0;
+}
+
+
+/* ----- DETALLE ----- */
+
+.camisa {
+    display: block;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .camisa {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+.camisa__contenido {
+    display: block;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.formulario__submit {
+    grid-column: 1/3;
+    background-color: var(--secundario);
+    border: none;
+    font-family: var(--fuentePrincipal);
+    font-size: 1.8rem;
+    height: 5rem;
+    color: var(--negro);
+    transition: background-color .3s ease; /* agregar transiciones */
+}
+
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--secundarioOscuro); /* Cambiar de color*/
+}
+
+.formulario__campo {
+    background-color: transparent;     /* Color transparente para que tome el color del fondo*/
+    border: .8rem solid var(--primarioOscuro);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+    font-size: 1.8rem;
+    height: 5rem;
+    appearance: none;  /* Quitar la flecha del select */
+}
+
+option {
+    color: var(--primarioOscuro);
+}
+
+
